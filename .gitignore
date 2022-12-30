@@ -1,2 +1,5 @@
-# IntelliJ Files
+# IntelliJ Folders
 /.idea
+
+# Python virtual environment
+/venv
