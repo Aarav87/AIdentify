@@ -21,6 +21,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".LightBurnActivity" />
+        <activity android:name=".SevereBurnActivity" />
+        <activity android:name=".SkinCutActivity" />
+        <activity android:name=".BruiseActivity" />
     </application>
 
 </manifest>

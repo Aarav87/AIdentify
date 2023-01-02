@@ -25,6 +25,20 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:clickable="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="612dp"
+        android:src="@drawable/back_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="1" />
+
+    <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"

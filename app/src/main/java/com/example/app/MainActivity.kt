@@ -7,7 +7,6 @@ import android.graphics.Bitmap
 import android.media.ThumbnailUtils
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.app.ml.Model
 import kotlinx.android.synthetic.main.activity_main.*
@@ -110,10 +109,22 @@ class MainActivity : AppCompatActivity() {
         // Display treatment page
         result.setOnClickListener {
             when (prediction) {
-                "Bruise" -> setContentView(R.layout.bruise_treatment)
-                "Skin Cut" -> setContentView(R.layout.skin_cut_treatment)
-                "Light Burn" -> setContentView(R.layout.light_burn_treatment)
-                "Severe Burn" -> setContentView(R.layout.severe_burn_treatment)
+                "Bruise" -> {
+                    val intent = Intent(this, BruiseActivity::class.java)
+                    startActivity(intent)
+                }
+                "Skin Cut" -> {
+                    val intent = Intent(this, SkinCutActivity::class.java)
+                    startActivity(intent)
+                }
+                "Light Burn" -> {
+                    val intent = Intent(this, LightBurnActivity::class.java)
+                    startActivity(intent)
+                }
+                "Severe Burn" -> {
+                    val intent = Intent(this, SevereBurnActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
     }
