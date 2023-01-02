@@ -107,9 +107,7 @@ class MainActivity : AppCompatActivity() {
         // Display prediction
         result.text = prediction
 
-        // Tell user how to view the treatment for the wound
-        Toast.makeText(applicationContext, "Click '$prediction' text to view treatment", Toast.LENGTH_SHORT).show()
-
+        // Display treatment page
         result.setOnClickListener {
             when (prediction) {
                 "Bruise" -> setContentView(R.layout.bruise_treatment)
