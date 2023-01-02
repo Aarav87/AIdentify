@@ -11,12 +11,36 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_centerHorizontal="true"
-        app:layout_constraintHeight_percent="0.75"
-        app:layout_constraintWidth_percent="0.90"
+        android:clickable="true"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.70"
+        app:layout_constraintHorizontal_bias="0.487"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.374"
+        app:layout_constraintWidth_percent="0.90" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="369dp"
+        android:layout_height="34dp"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textColor="#197AE3"
+        android:textSize="20sp"
+        android:gravity="center"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.08"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.148"
+        app:layout_constraintWidth_percent="0.9" />
 
     <Button
         android:id="@+id/takePicture"
@@ -33,7 +57,7 @@
 
         app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/result"
         app:layout_constraintVertical_bias="0.444" />
 
     <Button
@@ -51,20 +75,7 @@
 
         app:layout_constraintHorizontal_bias="0.911"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/result"
         app:layout_constraintVertical_bias="0.444" />
-
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="343dp"
-        android:layout_height="69dp"
-        android:layout_centerHorizontal="true"
-        android:text=""
-        android:textColor="#197AE3"
-        android:textSize="27sp"
-
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="34dp"
-        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

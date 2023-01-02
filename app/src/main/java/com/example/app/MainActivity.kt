@@ -7,12 +7,12 @@ import android.graphics.Bitmap
 import android.media.ThumbnailUtils
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.app.ml.Model
 import kotlinx.android.synthetic.main.activity_main.*
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
-import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 
@@ -51,9 +51,8 @@ class MainActivity : AppCompatActivity() {
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
             classifyImage(image)
         } else {
-            val dat = data?.data
-            var image: Bitmap? = MediaStore.Images.Media.getBitmap(this.contentResolver, dat)
-
+            var image: Bitmap? = MediaStore.Images.Media.getBitmap(this.contentResolver, data?.data)
+            image = Bitmap.createScaledBitmap(image!!, imageView.width, imageView.height, false)
             imageView.setImageBitmap(image)
 
             image = Bitmap.createScaledBitmap(image!!, imageSize, imageSize, false)
@@ -66,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     private fun classifyImage(image: Bitmap?) {
         val model = Model.newInstance(applicationContext)
 
-        // Prediction lasses
+        // Prediction classes
         val classes = arrayOf("Bruise", "Light Burn", "Severe Burn", "Skin Cut")
 
         // Creates inputs for reference
@@ -97,19 +96,27 @@ class MainActivity : AppCompatActivity() {
         val confidences = outputFeature0.floatArray
 
         // Get class with greatest confidence
-        var pos = 0
-        var maxConfidence = 0f
-        for (i in confidences.indices) {
-            if (confidences[i] > maxConfidence) {
-                maxConfidence = confidences[i]
-                pos = i
-            }
-        }
+        val pos = confidences.indices.maxBy { confidences[it] }
 
-        // Display prediction
-        result.text = classes[pos]
+        // Prediction
+        val prediction = classes[pos]
 
         // Releases model resources
         model.close()
+
+        // Display prediction
+        result.text = prediction
+
+        // Tell user how to view the treatment for the wound
+        Toast.makeText(applicationContext, "Click '$prediction' text to view treatment", Toast.LENGTH_SHORT).show()
+
+        result.setOnClickListener {
+            when (prediction) {
+                "Bruise" -> setContentView(R.layout.bruise_treatment)
+                "Skin Cut" -> setContentView(R.layout.skin_cut_treatment)
+                "Light Burn" -> setContentView(R.layout.light_burn_treatment)
+                "Severe Burn" -> setContentView(R.layout.severe_burn_treatment)
+            }
+        }
     }
 }
