@@ -12,6 +12,7 @@
         android:layout_height="0dp"
         android:layout_centerHorizontal="true"
         android:clickable="true"
+        android:src="@drawable/wound_placeholder"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +29,7 @@
         android:layout_width="369dp"
         android:layout_height="34dp"
         android:layout_centerHorizontal="true"
-        android:text=""
+        android:text="Bruise"
         android:textColor="#197AE3"
         android:textSize="20sp"
         android:gravity="center"
