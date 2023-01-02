@@ -10,6 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
         app:layout_constraintHeight_percent="0.75"
         app:layout_constraintWidth_percent="0.90"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +37,7 @@
         app:layout_constraintVertical_bias="0.444" />
 
     <Button
-        android:id="@+id/uploadGallery"
+        android:id="@+id/openGallery"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="From Gallery"
@@ -52,5 +53,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.444" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="343dp"
+        android:layout_height="69dp"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textColor="#197AE3"
+        android:textSize="27sp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="34dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
