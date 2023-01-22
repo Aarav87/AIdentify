@@ -1,4 +1,4 @@
-# Wound Classifier
+# AIdentify
 
 ## Demo
 
